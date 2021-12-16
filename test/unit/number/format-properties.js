@@ -66,7 +66,6 @@ QUnit.test( "should return nanSymbol", function( assert ) {
 });
 
 QUnit.test( "should return symbolMap", function( assert ) {
-	// debugger;
 	assert.deepEqual( properties( "0", es )[ 18 ], {
 		"%": "%",
 		"+": "+",
@@ -81,8 +80,8 @@ QUnit.test( "should return symbolMap", function( assert ) {
 		".": "٫",
 		",": "٬",
 		"%": "٪",
-		"+": "‎+",
-		"-": "‎−",
+		"+": "\u200e+",
+		"-": "\u200e−",
 		"E": "×۱۰^",
 		"‰": "؉"
 	});
