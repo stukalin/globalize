@@ -235,16 +235,15 @@ return function( pattern, cldr, timeZone ) {
 				}
 				break;
 
-			// Period (AM or PM)
+			// Periods (not that much data is loaded, so we can grab the full hash for either option)
 			case "a":
-				properties.dayPeriods = {
-					am: cldr.main(
-						"dates/calendars/gregorian/dayPeriods/format/wide/am"
-					),
-					pm: cldr.main(
-						"dates/calendars/gregorian/dayPeriods/format/wide/pm"
-					)
-				};
+			case "b":
+			case "B":
+				properties.dayPeriods = cldr.main([
+					"dates/calendars/gregorian/dayPeriods/format",
+					widths[ length < 4 ? 0 : length - 3 ]
+				]);
+
 				break;
 
 			// Hour

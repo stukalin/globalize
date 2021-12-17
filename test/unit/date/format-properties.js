@@ -128,9 +128,25 @@ QUnit.test( "should return days properties for day of week (eee..eeeeee|ccc..ccc
  *  Period
  */
 
-QUnit.test( "should return dayPeriods property for period (a)", function( assert ) {
-	assert.ok( "dayPeriods" in properties( "a", cldr ) );
-	assert.equal( Object.keys(properties( "a", cldr ).dayPeriods).length, 2 );
+[
+	"a",
+	"aaaa",
+	"aaaaa",
+	"b",
+	"bbbb",
+	"bbbbb",
+	"B",
+	"BBBB",
+	"BBBBB"
+].forEach(periodPattern => {
+	QUnit.test(`should return dayPeriods property for period (${periodPattern})`, function(assert) {
+		assert.ok("dayPeriods" in properties(periodPattern, cldr));
+		assert.equal(Object.keys(properties(periodPattern, cldr).dayPeriods).length, 10);
+
+		["am", "pm", "noon", "morning1"].forEach(samplePeriod => {
+			assert.ok(properties(periodPattern, cldr).dayPeriods[samplePeriod]);
+		});
+	});
 });
 
 /**
