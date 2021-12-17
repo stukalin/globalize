@@ -124,6 +124,7 @@ QUnit.test( "should return properties for day of week (E..EEEEEE)", function( as
 QUnit.test( "should return properties for period (a)", function( assert ) {
 	assert.ok( "gregorian/dayPeriods/format/wide" in tokenizerProperties( "a", cldr ) );
 });
+// todo add b/B
 
 /**
  *  Zone

@@ -280,6 +280,8 @@ return function( pattern, cldr, timeZone ) {
 				);
 				break;
 
+			// todo add b/B
+
 			// Zone
 			case "V":
 

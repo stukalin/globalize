@@ -45,6 +45,8 @@ return function( pattern, cldr, timeZone ) {
 		});
 	}
 
+	properties.dayPeriodRuleSet = cldr.supplemental("dayPeriodRuleSet/{language}");
+
 	pattern.replace( datePatternRe, function( current ) {
 		var aux, chr, daylightTzName, formatNumber, genericTzName, length, standardTzName;
 

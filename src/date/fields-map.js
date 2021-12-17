@@ -11,7 +11,7 @@ return objectInvert({
 	"week": "wW",
 	"day": "dDF",
 	"weekday": "ecE",
-	"dayperiod": "a",
+	"dayperiod": "abB",
 	"hour": "hHkK",
 	"minute": "m",
 	"second": "sSA",

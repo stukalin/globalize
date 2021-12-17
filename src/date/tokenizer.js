@@ -325,6 +325,8 @@ return function( value, numberParser, properties ) {
 				]);
 				break;
 
+			// todo add b/B
+
 			// Week
 			case "w":
 

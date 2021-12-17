@@ -509,6 +509,8 @@ QUnit.test( "should tokenize period (a)", function( assert ) {
 	}] );
 });
 
+// todo add b/B
+
 /**
  *  Hour
  */

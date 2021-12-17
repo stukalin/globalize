@@ -15,13 +15,14 @@ define([
 	"json!cldr-data/supplemental/metaZones.json",
 	"json!cldr-data/supplemental/timeData.json",
 	"json!cldr-data/supplemental/weekData.json",
+	"json!cldr-data/supplemental/dayPeriods.json",
 	"json!iana-tz-data.json",
 
 	"cldr/event",
 	"cldr/supplemental"
 ], function( Cldr, format, formatProperties, stringPad, deCaGregorian, enCaGregorian,
 	enTimeZoneNames, enGbCaGregorian, enGbTimeZoneNames, enInCaGregorian, ptCaGregorian,
-	ruCaGregorian, likelySubtags, metaZones, timeData, weekData, ianaTimezoneData ) {
+	ruCaGregorian, likelySubtags, metaZones, timeData, weekData, dayPeriods, ianaTimezoneData ) {
 
 var cldr,
 	year0 = new Date( -62167190400000 ),
@@ -57,7 +58,8 @@ Cldr.load(
 	likelySubtags,
 	metaZones,
 	timeData,
-	weekData
+	weekData,
+	dayPeriods
 );
 
 cldr = new Cldr( "en" );
@@ -754,13 +756,19 @@ QUnit.test( "should format local day of week (EEEEEE|eeeeee|cccccc)", function( 
  */
 
 QUnit.test( "should format period (a)", function( assert ) {
-	assert.dateFormat( date1, "a", cldr, [{
-		type: "dayperiod",
-		value: "AM"
-	}]);
-	assert.dateFormat( date2, "a", cldr, [{
-		type: "dayperiod",
-		value: "PM"
+	// assert.dateFormat( date1, "a", cldr, [{
+	// 	type: "dayperiod",
+	// 	value: "AM"
+	// }]);
+	// assert.dateFormat( date2, "a", cldr, [{
+	// 	type: "dayperiod",
+	// 	value: "PM"
+	// }]);
+
+	// debugger;
+	assert.dateFormat( date2, "h:mm a BBBB", new Cldr( "ru" ), [{
+		type: "hour",
+		value: "17"
 	}]);
 });
 

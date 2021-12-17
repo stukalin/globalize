@@ -153,6 +153,8 @@ return function( _value, tokens, properties ) {
 				amPm = token.value;
 				break;
 
+			// todo add b/B
+
 			// Hour
 			case "h": // 1-12
 				value = token.value;

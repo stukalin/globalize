@@ -138,13 +138,13 @@ QUnit.test( "should return days properties for day of week (eee..eeeeee|ccc..ccc
 	"B",
 	"BBBB",
 	"BBBBB"
-].forEach(periodPattern => {
-	QUnit.test(`should return dayPeriods property for period (${periodPattern})`, function(assert) {
+].forEach(function(periodPattern) {
+	QUnit.test("should return dayPeriods property for period (" + periodPattern + ")", function(assert) {
 		assert.ok("dayPeriods" in properties(periodPattern, cldr));
 		assert.equal(Object.keys(properties(periodPattern, cldr).dayPeriods).length, 10);
 
-		["am", "pm", "noon", "morning1"].forEach(samplePeriod => {
-			assert.ok(properties(periodPattern, cldr).dayPeriods[samplePeriod]);
+		[ "am", "pm", "noon", "morning1" ].forEach(function(samplePeriod) {
+			assert.ok(properties(periodPattern, cldr).dayPeriods[ samplePeriod ]);
 		});
 	});
 });
@@ -226,6 +226,13 @@ QUnit.test( "should return properties.timeZoneData when using timeZone argument"
 	assert.ok( "offsets" in formatProperties.timeZoneData() );
 	assert.ok( "untils" in formatProperties.timeZoneData() );
 	assert.ok( "isdsts" in formatProperties.timeZoneData() );
+});
+
+QUnit.test( "should return properties.dayPeriodRuleSet", function( assert ) {
+	var formatProperties = properties( "d", cldr );
+	assert.ok( "dayPeriodRuleSet" in formatProperties );
+	assert.ok( "midnight" in formatProperties.dayPeriodRuleSet );
+	assert.ok( "morning1" in formatProperties.dayPeriodRuleSet );
 });
 
 });
