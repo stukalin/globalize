@@ -23,6 +23,7 @@ require([
 	"./unit/date/expand-pattern/get-best-match-pattern",
 	"./unit/date/expand-pattern",
 	"./unit/date/timezone-hour-format",
+	"./unit/date/day-period",
 
 	"./unit/date/format-properties",
 	"./unit/date/parse-properties",

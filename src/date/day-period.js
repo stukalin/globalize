@@ -26,10 +26,14 @@ define(function() {
             var before = getMinutesFromHHmmTime(periodString._before);
 
             if (before < from) {
-                before += 24 * 60;
+                // this is the case we splill over midnight, e.g.
+                // night1: { _before: "04:00", _from: "22:00" }
+                // let's check 2 intervals: [from, 24:00) and [00:00, before)
+                return from <= totalMinutes && totalMinutes < 24 * 60 ||
+                    0 <= totalMinutes && totalMinutes < before;
+            } else {
+                return from <= totalMinutes && totalMinutes < before;
             }
-
-            return from <= totalMinutes && totalMinutes < before;
         });
     }
 
