@@ -1,14 +1,14 @@
 define([
 	"globalize",
-	"json!cldr-data/main/de/currencies.json",
-	"json!cldr-data/main/de/numbers.json",
-	"json!cldr-data/main/en/currencies.json",
-	"json!cldr-data/main/en/numbers.json",
-	"json!cldr-data/main/zh/currencies.json",
-	"json!cldr-data/main/zh/numbers.json",
-	"json!cldr-data/supplemental/currencyData.json",
-	"json!cldr-data/supplemental/likelySubtags.json",
-	"json!cldr-data/supplemental/plurals.json",
+	"text!cldr-data/main/de/currencies.json",
+	"text!cldr-data/main/de/numbers.json",
+	"text!cldr-data/main/en/currencies.json",
+	"text!cldr-data/main/en/numbers.json",
+	"text!cldr-data/main/zh/currencies.json",
+	"text!cldr-data/main/zh/numbers.json",
+	"text!cldr-data/supplemental/currencyData.json",
+	"text!cldr-data/supplemental/likelySubtags.json",
+	"text!cldr-data/supplemental/plurals.json",
 	"../../util",
 
 	"globalize/currency",
@@ -25,14 +25,14 @@ var accounting = { style: "accounting" },
 
 function extraSetup() {
 	Globalize.load(
-		currencyData,
-		deCurrencies,
-		deNumbers,
-		enCurrencies,
-		enNumbers,
-		plurals,
-		zhCurrencies,
-		zhNumbers
+		JSON.parse(currencyData),
+		JSON.parse(deCurrencies),
+		JSON.parse(deNumbers),
+		JSON.parse(enCurrencies),
+		JSON.parse(enNumbers),
+		JSON.parse(plurals),
+		JSON.parse(zhCurrencies),
+		JSON.parse(zhNumbers)
 	);
 
 }

@@ -1,15 +1,15 @@
 define([
 	"cldr",
 	"src/date/format-properties",
-	"json!cldr-data/main/en/ca-gregorian.json",
-	"json!cldr-data/main/en/timeZoneNames.json",
-	"json!cldr-data/main/en-GB/ca-gregorian.json",
-	"json!cldr-data/main/en-GB/timeZoneNames.json",
-	"json!cldr-data/supplemental/likelySubtags.json",
-	"json!cldr-data/supplemental/timeData.json",
-	"json!cldr-data/supplemental/weekData.json",
-	"json!cldr-data/supplemental/metaZones.json",
-	"json!iana-tz-data.json",
+	"text!cldr-data/main/en/ca-gregorian.json",
+	"text!cldr-data/main/en/timeZoneNames.json",
+	"text!cldr-data/main/en-GB/ca-gregorian.json",
+	"text!cldr-data/main/en-GB/timeZoneNames.json",
+	"text!cldr-data/supplemental/likelySubtags.json",
+	"text!cldr-data/supplemental/timeData.json",
+	"text!cldr-data/supplemental/weekData.json",
+	"text!cldr-data/supplemental/metaZones.json",
+	"text!iana-tz-data.json",
 
 	"cldr/event",
 	"cldr/supplemental"
@@ -19,19 +19,19 @@ define([
 var cldr;
 
 Cldr.load(
-	enCaGregorian,
-	enTimeZoneNames,
-	enGbCaGregorian,
-	enGbTimeZoneNames,
-	likelySubtags,
-	timeData,
-	weekData,
-	metaZones
+	JSON.parse(enCaGregorian),
+	JSON.parse(enTimeZoneNames),
+	JSON.parse(enGbCaGregorian),
+	JSON.parse(enGbTimeZoneNames),
+	JSON.parse(likelySubtags),
+	JSON.parse(timeData),
+	JSON.parse(weekData),
+	JSON.parse(metaZones)
 );
 
 // Needed for globalizeDate.
 Cldr.load({
-	"globalize-iana": ianaTimezoneData
+	"globalize-iana": JSON.parse(ianaTimezoneData)
 });
 
 cldr = new Cldr( "en" );

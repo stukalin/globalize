@@ -1,10 +1,10 @@
 define([
 	"globalize",
-	"json!cldr-data/main/en/currencies.json",
-	"json!cldr-data/main/en/numbers.json",
-	"json!cldr-data/supplemental/currencyData.json",
-	"json!cldr-data/supplemental/likelySubtags.json",
-	"json!cldr-data/supplemental/plurals.json",
+	"text!cldr-data/main/en/currencies.json",
+	"text!cldr-data/main/en/numbers.json",
+	"text!cldr-data/supplemental/currencyData.json",
+	"text!cldr-data/supplemental/likelySubtags.json",
+	"text!cldr-data/supplemental/plurals.json",
 	"../../util",
 
 	"globalize/currency",
@@ -15,10 +15,10 @@ var teslaS = 69900;
 
 function extraSetup() {
 	Globalize.load(
-		currencyData,
-		enCurrencies,
-		enNumbers,
-		plurals
+		JSON.parse(currencyData),
+		JSON.parse(enCurrencies),
+		JSON.parse(enNumbers),
+		JSON.parse(plurals)
 	);
 }
 
