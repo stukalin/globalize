@@ -10,7 +10,6 @@
   "devDependencies": {
     "make-plural": "eemeli/make-plural.js#3.0.0",
     "messageformat": "SlexAxton/messageformat.js#v0.3.0-1",
-    "requirejs-plugins": "1.0.2",
-    "requirejs-text": "2.0.10"
+    "requirejs-plugins": "1.0.2"
   }
 }

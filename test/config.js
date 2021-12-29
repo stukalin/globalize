@@ -8,7 +8,7 @@ var requirejs = {
 		"iana-tz-data": "../node_modules/iana-tz-data/iana-tz-data",
 		json: "../external/requirejs-plugins/src/json",
 		src: "../src",
-		text: "../external/requirejs-text/text",
+		text: "../node_modules/requirejs-text/text",
 		"zoned-date-time": "../node_modules/zoned-date-time/src/zoned-date-time"
 	},
 
