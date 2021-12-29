@@ -80,12 +80,7 @@ module.exports = function( grunt ) {
 		qunit: {
 			functional: {
 				options: {
-					urls: [
-
-						// Use es5-shim here due to .bind(), which is not present on phantomjs v1.9.
-						// But, it should be on v2.x.
-						"http://localhost:<%= connect.options.port %>/functional-es5-shim.html"
-					]
+					urls: [ "http://localhost:<%= connect.options.port %>/functional.html" ]
 				}
 			},
 			unit: {
@@ -101,7 +96,7 @@ module.exports = function( grunt ) {
 				baseUrl: ".",
 				optimize: "none",
 				paths: {
-					cldr: "../external/cldrjs/dist/cldr",
+					cldr: "../node_modules/cldrjs/dist/cldr",
 					"make-plural": "../external/make-plural/make-plural",
 					messageformat: "../external/messageformat/messageformat",
 					"zoned-date-time": "../node_modules/zoned-date-time/src/zoned-date-time"
