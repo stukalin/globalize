@@ -10,10 +10,11 @@ define([
 	"./week-days",
 	"../common/parts/push",
 	"../util/remove-literal-quotes",
-	"./day-period"
+	"./day-period-range",
+	"./day-period-exact"
 ], function( ZonedDateTime, dateDayOfWeek, dateDayOfYear, dateFieldsMap, dateMillisecondsInDay,
 	datePatternRe, dateStartOf, dateTimezoneHourFormat, dateWeekDays, partsPush,
-	removeLiteralQuotes, getDayPeriodName ) {
+	removeLiteralQuotes, getRangeDayPeriodName, getExactDayPeriodName ) {
 
 /**
  * format( date, properties )
@@ -193,16 +194,23 @@ return function( date, numberFormatters, properties ) {
 				value = properties.days[ chr ][ length ][ value ];
 				break;
 
+			// Period (noon or midnight otherwise am/pm)
+			case "b":
+				value = properties.dayPeriods[ getExactDayPeriodName(date,
+					properties.dayPeriodRuleSet) ];
+				if (value) {
+					break;
+				}
+				// note no break operator here: we wanna go to the "a" case
+
 			// Period (AM or PM)
 			case "a":
 				value = properties.dayPeriods[ date.getHours() < 12 ? "am" : "pm" ];
 				break;
 
 			// Period (morning, afternoon etc.)
-			// todo add b/B
 			case "B":
-				// debugger;
-				value = properties.dayPeriods[ getDayPeriodName(date,
+				value = properties.dayPeriods[ getRangeDayPeriodName(date,
 					properties.dayPeriodRuleSet) ];
 				break;
 

@@ -756,19 +756,71 @@ QUnit.test( "should format local day of week (EEEEEE|eeeeee|cccccc)", function( 
  */
 
 QUnit.test( "should format period (a)", function( assert ) {
-	// assert.dateFormat( date1, "a", cldr, [{
-	// 	type: "dayperiod",
-	// 	value: "AM"
-	// }]);
-	// assert.dateFormat( date2, "a", cldr, [{
-	// 	type: "dayperiod",
-	// 	value: "PM"
-	// }]);
+	assert.dateFormat( date1, "a", cldr, [{
+		type: "dayperiod",
+		value: "AM"
+	}]);
+	assert.dateFormat( date2, "aaaa", cldr, [{
+		type: "dayperiod",
+		value: "PM"
+	}]);
+	assert.dateFormat( date3, "aaaaa", cldr, [{
+		type: "dayperiod",
+		value: "p"
+	}]);
+});
 
-	// debugger;
-	assert.dateFormat( date2, "h:mm a BBBB", new Cldr( "ru" ), [{
-		type: "hour",
-		value: "17"
+QUnit.test( "should format period (B)", function( assert ) {
+	assert.dateFormat( date1, "hB", cldr, [{
+		"type": "hour",
+		"value": "9"
+	},
+	{
+		"type": "dayperiod",
+		"value": "in the morning"
+	}]);
+	assert.dateFormat( date2, "hBBBB", cldr, [{
+		"type": "hour",
+		"value": "5"
+	},
+	{
+		"type": "dayperiod",
+		"value": "in the afternoon"
+	}]);
+	assert.dateFormat( date3, "hBBBBB", cldr, [{
+		"type": "hour",
+		"value": "12"
+	},
+	{
+		"type": "dayperiod",
+		"value": "in the afternoon"
+	}]);
+});
+
+QUnit.test( "should format period (b)", function( assert ) {
+	assert.dateFormat( date1, "hbbbb", cldr, [{
+		"type": "hour",
+		"value": "9"
+	},
+	{
+		"type": "dayperiod",
+		"value": "AM"
+	}]);
+	assert.dateFormat( date2, "hbbbbb", cldr, [{
+		"type": "hour",
+		"value": "5"
+	},
+	{
+		"type": "dayperiod",
+		"value": "p"
+	}]);
+	assert.dateFormat( date3, "hb", cldr, [{
+		"type": "hour",
+		"value": "12"
+	},
+	{
+		"type": "dayperiod",
+		"value": "noon"
 	}]);
 });
 

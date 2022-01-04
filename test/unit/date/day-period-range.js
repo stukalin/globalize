@@ -1,8 +1,8 @@
 define([
-    "src/date/day-period"
+    "src/date/day-period-range"
 ], function(getDayPeriodName) {
 
-    QUnit.module("Day Period");
+    QUnit.module("Day Period (range)");
 
     QUnit.test("should return correct period", function(assert) {
         var ruleSet = {
